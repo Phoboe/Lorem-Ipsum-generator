@@ -8,5 +8,5 @@ public class main {
         g = 0 ;
         System.out.println(g);
 
-    }   
+    }
 }

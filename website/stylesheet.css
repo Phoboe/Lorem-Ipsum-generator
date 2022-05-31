@@ -7,6 +7,30 @@
     font-style: normal;
 }
 
+@font-face {
+  font-family: adamina;
+  font-style: normal;
+  font-weight: 400;
+  src: url('fonts/adamina/adamina-v21-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('fonts/adamina/adamina-v21-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('fonts/adamina/adamina-v21-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('fonts/adamina/adamina-v21-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('fonts/adamina/adamina-v21-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('fonts/adamina/adamina-v21-latin-regular.svg#Adamina') format('svg'); /* Legacy iOS */
+}
+
+
+
+
+
+
+
+
+
+
+
+
 * {
   font-family: nunito;
 }
@@ -39,6 +63,7 @@ html {
 
   max-width: 900px;
   margin: 200px auto 100px auto;
+  padding-bottom: 50px
   /* height: 85%; */
 }
 
@@ -55,9 +80,72 @@ html {
 
 
 
+#lorem-ipsum {
+  margin: 20px;
+
+  font-family: adamina;
+  text-align: justify;
+}
 
 
-/* Text decoration
+
+
+
+
+
+
+
+
+
+
+footer {
+  /* height: 50px; */
+  border-top: 1px grey solid;
+  background-color: #e2e2e2;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px 0 40px;
+}
+
+footer p, footer a {
+  width: 250px;
+  margin: 10px 20px 20px 20px;
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Text decoration ids
 
  */
 

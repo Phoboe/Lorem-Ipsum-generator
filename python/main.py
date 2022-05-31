@@ -10,6 +10,7 @@ inputFileName = 'LoremIpsum.txt'
 outputFileName = 'LoremIpsum.csv'
 
 import os
+import csv
 
 os.system('cls')
 
@@ -24,24 +25,68 @@ def get_lorem_ipsum(fileName):
 
     try: # If the file already exists
 
-        with open(fileName, encoding='utf-8') as file:
-            list = file.readlines()
+        with open(fileName, mode='r') as file:
+            array = file.readlines()
 
     except FileNotFoundError:
 
         print(f'\nThe file \"{fileName}\" does not exists. \nPlease add a file contaning a Lorem Ipsum text source.')
         exit()
 
-    return list
+    return array
 
-list = get_lorem_ipsum(inputFileName)
+def list_to_string(array):
 
-sentences = []
-for paragraph in list:
-    sentences.append(paragraph.split('.'))
+    string = ''
+    for elt in array:
+        string += elt
+
+    return string
+
+def get_words(string):
+    """ Transform a string into a list of all the words with lower case and no symbol. """
+
+    symbols = [
+    '.',
+    ',',
+    '\n',
+    '    ',
+    '   ',
+    '  ',
+    ]
+
+    for symbol in symbols:
+        string = string.replace(symbol, ' ') # delete all symbols
+    string = string.lower()
+
+    words = string.split(' ') # Transform the string into a list
+    words = list(dict.fromkeys(words)) # remove all duplicates
+    words.remove('')
+
+    return words
+
+def export(array, fileName):
+    with open(fileName, mode='w') as file:
+        writer = csv.writer(file)
+        writer.writerow(['words : '])
+        for row in array:
+            writer.writerow([row])
+    pass
 
 
 
 
-for elt in sentences:
-    print(elt)
+lines = get_lorem_ipsum(inputFileName)
+string = list_to_string(lines)
+words = get_words(string)
+
+
+for word in words:
+    print(word)
+
+print(f'Total {len(words)} words. \n')
+
+print(words)
+
+
+export(words, outputFileName)

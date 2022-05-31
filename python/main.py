@@ -9,8 +9,39 @@ Docstring for main.py :
 inputFileName = 'LoremIpsum.txt'
 outputFileName = 'LoremIpsum.csv'
 
+import os
 
-def get_lorem_ipsum():
-    with file as f:
-        file.open()
-        pass
+os.system('cls')
+
+
+
+
+
+
+
+def get_lorem_ipsum(fileName):
+    """ get all lines of the file and output a list. """
+
+    try: # If the file already exists
+
+        with open(fileName, encoding='utf-8') as file:
+            list = file.readlines()
+
+    except FileNotFoundError:
+
+        print(f'\nThe file \"{fileName}\" does not exists. \nPlease add a file contaning a Lorem Ipsum text source.')
+        exit()
+
+    return list
+
+list = get_lorem_ipsum(inputFileName)
+
+sentences = []
+for paragraph in list:
+    sentences.append(paragraph.split('.'))
+
+
+
+
+for elt in sentences:
+    print(elt)

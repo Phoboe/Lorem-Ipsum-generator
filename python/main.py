@@ -49,6 +49,7 @@ def get_words(string):
     symbols = [
     '.',
     ',',
+    ';',
     '\n',
     '    ',
     '   ',
@@ -65,12 +66,21 @@ def get_words(string):
 
     return words
 
+def sort_by_lenght(unsorted_list):
+    """ Sort a list by the lenght of its values. Values are lists or strings. """
+    sorted_list = sorted(unsorted_list, key=len)
+    return sorted_list
+
+
 def export(array, fileName):
-    with open(fileName, mode='w') as file:
+    with open(fileName, mode='w', newline='') as file:
         writer = csv.writer(file)
-        writer.writerow(['words : '])
-        for row in array:
-            writer.writerow([row])
+
+        sorted = sort_by_lenght(array)
+
+        writer.writerow(['words :', 'sorted :', 'lenght :'])
+        for i in range(len(array)):
+            writer.writerow([array[i], sorted[i], len(sorted[i])])
     pass
 
 
@@ -86,7 +96,9 @@ for word in words:
 
 print(f'Total {len(words)} words. \n')
 
-print(words)
+print('-'*15, '\nSorted words by lenght :\n')
 
+for word in sort_by_lenght(words):
+    print(word)
 
 export(words, outputFileName)

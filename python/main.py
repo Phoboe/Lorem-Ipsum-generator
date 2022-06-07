@@ -78,9 +78,11 @@ def export(array, fileName):
 
         sorted = sort_by_lenght(array)
 
-        writer.writerow(['words :', 'sorted :', 'lenght :'])
+        initrow = ['words :', 'sorted :', 'lenght :']
+        writer.writerow(initrow)
         for i in range(len(array)):
-            writer.writerow([array[i], sorted[i], len(sorted[i])])
+            row = [array[i], sorted[i], len(sorted[i])]
+            writer.writerow(row)
     pass
 
 
@@ -91,8 +93,7 @@ string = list_to_string(lines)
 words = get_words(string)
 
 
-for word in words:
-    print(word)
+
 
 print(f'Total {len(words)} words. \n')
 
@@ -102,3 +103,9 @@ for word in sort_by_lenght(words):
     print(word)
 
 export(words, outputFileName)
+
+with open(outputFileName, mode='r') as file:
+    array = file.readlines()
+
+for line in array:
+    print(line, end='')

@@ -1,11 +1,10 @@
 public class Rand {
-    public static int[] rand(int[] tab , int maxmot) {
+    public static int rand(){
         double g;
-        for (int i = 0 ; i < maxmot ; i++){
-            g = Math.random() * 100;
-            tab[i]= (int)g ;    
-            System.out.println(tab[i]);
-        }
-        return tab;
+        int h;
+        g = Math.random() * 10;
+        h = (int)g ;
+        System.out.println(h);
+        return h;
     }
 }

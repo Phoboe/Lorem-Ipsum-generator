@@ -1,3 +1,6 @@
+def to_next(words):
+    words
+    pass
 
 
 text = 'he ha hi'
@@ -5,7 +8,7 @@ text = 'he ha hi'
 
 words = ['he', 'ha', 'hi']
 
-# next = to_next(words)
+next = to_next(words)
 
 next = [
 [('he', 0), ('ha', 1), ('hi', 0)], # mots qui suivent he
@@ -17,8 +20,7 @@ next = [
 
 
 long_list = []
-for j in range(len(next)):
-    print(f'mot "{words[j]}" est suivi par : ', next[j])
+for list in next:
     for couple in next[j]:
         for i in range(couple[1]):
             long_list.append(couple[0])

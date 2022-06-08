@@ -12,6 +12,7 @@ public class main {
         int maxmot = scanner.nextInt() , rando;
         List liste_mot = new ArrayList();
         String produit_fini = new String();
+        int val_sauv = 0 ;
 
         List<List<String>> records = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader("python/LoremIpsum.csv"))) {
@@ -34,9 +35,12 @@ public class main {
 
 
         for( int i = 0 ; i < maxmot ; i++ ){
-            rando = Rand.rand(0, liste_mot.size());
+            rando = Rand.rand(0, liste_mot.size(),val_sauv);
             produit_fini += liste_mot.get(rando)+" ";
+            val_sauv = liste_mot.indexOf(liste_mot.get(rando));
         }
+
+        
 
         System.out.println(produit_fini);
     }   

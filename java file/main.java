@@ -15,10 +15,10 @@ public class main {
         int val_sauv = 0 ;
 
         List<List<String>> records = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader("python/LoremIpsum.csv"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("LoremIpsum"))) { // Lorem ipsum 150 paragraphs.txt
             String line;
             while ((line = br.readLine()) != null) {
-                String[] values = line.split(",");
+                String[] values = line.split(","); // " "
                 records.add(Arrays.asList(values));
             }
         }
@@ -40,7 +40,7 @@ public class main {
             val_sauv = liste_mot.indexOf(liste_mot.get(rando));
         }
 
-        
+        //System.out.println(liste_mot);
 
         System.out.println(produit_fini);
     }   
